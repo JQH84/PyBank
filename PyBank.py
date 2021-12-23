@@ -12,7 +12,7 @@ budget_pnl = []
 # open the file and read what is inside the CSV file
 with open(filepath, "r") as csvfile:
     file = csv.reader(csvfile, delimiter=",")
-    # get the header to save into the dict
+    # get the header and skip to next line in csv file
     budget_header = next(csvfile)
 
     # loop through the lines and store the csv data into the dict file budget
@@ -51,24 +51,20 @@ for i in range(len(budget_pnl)):
 
 # printing out the summary statistics
 
-
-def summary():
-
-    return print("Financial Analysis")
-    return print("------------------------------------------------------------")
-    return print(f"Total Months: {total_number_month} Months")
-    return print(f"Total Profits/Losses: ${net_total_pnl}")
-    return print(f"Avarage Change: ${avarage}")
-    return print(f"Greatest increase in  Profits was ${max_profit} on {max_date}")
-    return print(f"Greatest Decrease in  Profits was ${min_profit} on {min_date}")
+print("Financial Analysis")
+print("------------------------------------------------------------")
+print(f"Total Months: {total_number_month} Months")
+print(f"Total Profits/Losses: ${net_total_pnl}")
+print(f"Avarage Change: ${avarage}")
+print(f"Greatest increase in  Profits was ${max_profit} on {max_date}")
+print(f"Greatest Decrease in  Profits was ${min_profit} on {min_date}")
 
 
 # creating a file to save the output as txt
 output = Path("results/output.txt")
-summary_txt = summary()
+
 with open(output, "w") as file:
-    file.write(summary_txt)
-    """
+
     file.write("Financial Analysis\n")
     file.write("------------------------------------------------------------\n")
     file.write(f"Total Months: {total_number_month} Months\n")
@@ -76,4 +72,3 @@ with open(output, "w") as file:
     file.write(f"Avarage Change: ${avarage}\n")
     file.write(f"Greatest increase in  Profits was ${max_profit} on {max_date}\n")
     file.write(f"Greatest Decrease in  Profits was ${min_profit} on {min_date}")
-    """
